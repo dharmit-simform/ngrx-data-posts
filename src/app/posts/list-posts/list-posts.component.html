@@ -1,0 +1,27 @@
+<div class="row mt-3">
+  <div class="col-md-6 text-start">
+    <h3>Posts Lists</h3>
+  </div>
+  <div class="col-md-6 text-end">
+    <button class="btn btn-outline-primary" [routerLink]="['add']">Add Post</button>
+  </div>
+  <div class="row" *ngIf="posts$ | async as posts">
+    <div class="col-md-4 mt-4 text-start" *ngFor="let post of posts;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{post.userInfo.name}}</h6>
+          <p class="card-text">{{post.body}}</p>
+          <a href="#" class="card-link"><a class="btn btn-outline-primary btn-sm me-1 px-3"
+              [routerLink]="['edit', post._id]">Edit</a></a>
+          <button class="btn btn-sm btn-outline-danger ms-1 me-1 px-3">Delete</button>
+          <button class="btn btn-sm btn-outline-warning ms-1 px-3" [routerLink]="['details', post._id]">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <router-outlet></router-outlet>
+</div>

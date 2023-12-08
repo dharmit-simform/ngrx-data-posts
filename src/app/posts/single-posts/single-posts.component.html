@@ -1,0 +1,7 @@
+<div>PostDetails</div>
+<div *ngIf="post">
+  <div>Title {{ post.title }}</div>
+  <div>Body {{ post.body }}</div>
+  <div>Created At: {{ post.createdAt | date }}</div>
+</div>
+<div><a [routerLink]="['/posts']">Back to posts</a></div>
